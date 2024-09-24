@@ -1,0 +1,29 @@
+{
+  "manifest_version": 3,
+  "name": "Helper Functions Extension",
+  "description": "Helpers Utilities built for React applications",
+  "version": "1.0",
+  "icons": {
+    "48": "images/help.png"
+  },
+  "action": {
+    "default_popup": "./popup/index.html",
+    "default_title": "Helper Functions Extension"
+  },
+  "content_scripts": [
+    {
+      "js": ["assets/content.js"],
+      "matches": ["https://*/*", "http://*/*"]
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "matches": ["https://*/*", "http://*/*"],
+      "resources": ["assets/*"]
+    }
+  ],
+  "background": {
+    "service_worker": "assets/background.js",
+    "type": "module"
+  }
+}
